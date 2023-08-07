@@ -1,3 +1,9 @@
-class CitySerializer < ActiveModel::Serializer
-  attributes :id , :type = "air_quality", :city
+class CitySerializer
+  include JSONAPI::Serializer
+  attributes :id , :type = "air_quality"
+
+  attribute :city do |object|
+
+    object.city
+  end
 end

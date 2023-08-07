@@ -1,7 +1,7 @@
 class Capital
-  attr_reader :capital
+  attr_reader :city
 
   def initialize(data)
-    @capital = data[0][:capital][0]
+    @city = data[0][:capital][0]
   end
  end
