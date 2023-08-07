@@ -1,9 +1,9 @@
 class CitySerializer
   include JSONAPI::Serializer
-  attributes :id , :type = "air_quality"
+  set_type :air_quality
+  attributes :city
 
   attribute :city do |object|
-
     object.city
   end
 end
