@@ -8,6 +8,6 @@ RSpec.describe CapitalFacade do
       .to_return(status: 200, body: response, headers: {})
 
     france = CapitalFacade.capital("france")
-    expect(france.first).to be_a(Capital)
+    expect(france).to be_a(Capital)
   end
 end
