@@ -20,6 +20,7 @@ RSpec.describe "air quality search request" do
       to_return(status: 200, body: air, headers: {})
 
       get "/api/v1/air_quality?country=Nigeria"
+      require 'pry'; binding.pry
       expect(response).to be_successful
 
       #       expect(response).to be_successful
