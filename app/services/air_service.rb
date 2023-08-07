@@ -5,8 +5,9 @@ class AirService
     end
   end
 
-  def self.capital_search(input)
+  def self.capital_air(input)
     response = conn.get("/airquality?city=#{input}")
+
     JSON.parse(response.body, symbolize_names: true)
   end
 end

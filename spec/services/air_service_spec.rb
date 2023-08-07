@@ -7,7 +7,7 @@ RSpec.describe AirService do
     stub_request(:get, "https://api.api-ninjas.com/airquality?X-Api-Key=GxlpwJgf/k8D5IOkLy0GEw==TPvNIVnr29JhuiIN&city=paris")
       .to_return(status: 200, body: city_search, headers: {})
 
-    paris = AirService.capital_search("paris")
+    paris = AirService.capital_air("paris")
     expect(paris).to be_a(Hash)
     expect(paris[:"PM2.5"]).to be_a(Hash)
     expect(paris[:CO]).to be_a(Hash)
