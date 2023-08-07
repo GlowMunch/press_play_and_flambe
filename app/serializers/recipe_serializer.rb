@@ -1,4 +1,4 @@
-class RecipeSerializer
-  include JSONAPI::Serializer
-  attributes :title
-end
+# class RecipeSerializer
+#   include JSONAPI::Serializer
+#   attributes :title
+# end

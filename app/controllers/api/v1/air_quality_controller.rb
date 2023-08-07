@@ -1,12 +1,12 @@
-module Api
-  module V1
-    class AirQualityController < ApplicationController
-      def show
-        country = params[:country]
-        capital = CountryService.
+class Api::V1::AirQualityController < ApplicationController
+  def index
+    capital = CapitalFacade.capital(params[:country])[0].capital
+    air_quality = AirQualityFacade.air_quality(capital)
+    render json: AirQualitySerializer.new(air_quality)
+    require 'pry'; binding.pry
+  end
 
-        render json: AirQualitySerializer.new(country)
-      end
-    end
+  def show
+
   end
 end

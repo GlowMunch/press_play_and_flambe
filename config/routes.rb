@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :api do
     namespace :v1 do
-      resources :air_quality, only: (:index)
+      resources :air_quality, only: [:show, :index]
     end
   end
 end
