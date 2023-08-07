@@ -4,7 +4,7 @@ RSpec.describe Air do
 
   it 'attributes' do
     response = File.read("spec/fixtures/paris_air_response.json")
-    stub_request(:get, "https://api.api-ninjas.com/airquality?city=paris").
+    stub_request(:get, "https://api.api-ninjas.com/v1/airquality?city=paris").
     with(
       headers: {
      'Accept'=>'*/*',

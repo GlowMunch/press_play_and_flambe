@@ -5,11 +5,11 @@ RSpec.describe "air quality search request" do
     it "can return a counties capital air quality" do
 
       country = File.read("spec/fixtures/nigeria_response.json")
-      stub_request(:get, "https://restcountries.com/Nigeria")
+      stub_request(:get, "https://restcountries.com/v3.1/name/Nigeria")
         .to_return(status: 200, body: country, headers: {})
 
       air = File.read("spec/fixtures/abuja_air_response.json")
-      stub_request(:get, "https://api.api-ninjas.com/airquality?city=Abuja").
+      stub_request(:get, "https://api.api-ninjas.com/v1/airquality?city=Abuja").
       with(
         headers: {
        'Accept'=>'*/*',
