@@ -10,4 +10,4 @@ class Air
     @pm25_concentration = data[:"PM2.5"][:concentration]
     @co_concentration   = data[:CO][:concentration]
   end
- end
+end
