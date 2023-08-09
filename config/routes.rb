@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :air_quality, only: [:show, :index]
       resources :recipes, only: [:index]
+      resources :learning_resources, only: [:index]
     end
   end
 end

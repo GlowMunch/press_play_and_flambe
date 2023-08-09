@@ -16,30 +16,4 @@ class EdamamService
 
   private
 
-  def delete_url(url)
-    response = conn.delete(url)
-    JSON.parse(response.body, symbolize_names: true)
-  end
-
-  def patch_url(url, params)
-    response = conn.patch(url, params)
-    JSON.parse(response.body, symbolize_names: true)
-  end
-
-  def post_url(url, params)
-    response = conn.post(url, params)
-    JSON.parse(response.body, symbolize_names: true)
-  end
-
-  def friend_post_url(url, params)
-    conn.post(url, params)
-  end
 end
-
-  # def conn
-  #   ## Alway comment this in before pushing to production
-  #   # Faraday.new(url: "render")
-  #   Faraday.new(url: "http://localhost:3000")
-  #   # change to http://localhost:3000 for local testing if needed
-  # end
-# end
