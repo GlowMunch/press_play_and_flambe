@@ -13,12 +13,14 @@ end
 def country_data
   france_search = File.read("spec/fixtures/france_response.json")
   nigeria_search = File.read("spec/fixtures/nigeria_response.json")
-
+  all_countries = File.read("spec/fixtures/all_countries_response.json")
 
   stub_request(:get, "https://restcountries.com/v3.1/name/france")
     .to_return(status: 200, body: france_search, headers: {})
   stub_request(:get, "https://restcountries.com/v3.1/name/Nigeria")
     .to_return(status: 200, body: nigeria_search, headers: {})
+  stub_request(:get, "https://restcountries.com/v3.1/all")
+    .to_return(status: 200, body: all_countries, headers: {})
 end
 
 def air_data

@@ -13,4 +13,11 @@ RSpec.describe "Recipe Request" do
       expect(response).to be_successful
     end
   end
+
+  context "sad path" do
+    xit "can randomly select a country if nothing is provided" do
+      get "/api/v1/recipes?country="
+      expect(response).to be_successful
+    end
+  end
 end
