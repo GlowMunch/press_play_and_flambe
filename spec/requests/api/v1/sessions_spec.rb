@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Api::V1::Sessions", type: :request do
+RSpec.describe "Sessions", type: :request do
   describe "POST /api/v1/sessions" do
     it "logs in an existing user and returns the expected JSON response" do
       user = User.create!(
@@ -30,6 +30,26 @@ RSpec.describe "Api::V1::Sessions", type: :request do
       expect(user_response).to have_key(:id)
       expect(user_response[:id]).to eq(user.id)
 
+    end
+  end
+
+  describe "sad path" do
+    it "cant log in if user credentials are wrong" do
+      user = User.create!(
+        name: "Odell",
+        email: "goodboy@ruffruff.com",
+        password: "treats4lyf",
+        password_confirmation: "treats4lyf"
+      )
+
+      login_params = {
+        email: user.email,
+        password: "wrong"
+      }
+
+      post "/api/v1/sessions", params: login_params, as: :json
+
+      expect(response).to have_http_status(:unprocessable_entity)
     end
   end
 end

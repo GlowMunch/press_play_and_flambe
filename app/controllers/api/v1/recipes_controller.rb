@@ -1,6 +1,6 @@
 class Api::V1::RecipesController < ApplicationController
   def index
-    if params[:country] == nil
+    if params[:country].empty?
       recipe = EdamamFacade.recipe(CountryService.random)
       render json: RecipeSerializer.new(recipe)
     else
