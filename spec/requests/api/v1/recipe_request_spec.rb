@@ -19,5 +19,11 @@ RSpec.describe "Recipe Request" do
       get "/api/v1/recipes?country="
       expect(response).to be_successful
     end
+
+    it "a country with no recipes returns data: []" do
+      get "/api/v1/recipes?country=tuvalu"
+      expect(response).to be_successful
+      expect(JSON.parse(response.body)).to eq("data" => [])
+    end
   end
 end

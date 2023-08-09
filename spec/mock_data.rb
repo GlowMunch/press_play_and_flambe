@@ -1,9 +1,12 @@
 def recipe_data
   thailand_recipe = File.read("spec/fixtures/recipe_response.json")
+  tuvalu_search = File.read("spec/fixtures/tuvalu_response.json")
 
 
   stub_request(:get, "https://api.edamam.com/api/recipes/v2?app_id=b309863d&app_key=630fa3d32a523d174d51172ff767285f&q=thailand&type=public")
-    .to_return(status: 200, body: thailand_recipe, headers: {})
+  .to_return(status: 200, body: thailand_recipe, headers: {})
+  stub_request(:get, "https://api.edamam.com/api/recipes/v2?app_id=b309863d&app_key=630fa3d32a523d174d51172ff767285f&q=tuvalu&type=public")
+    .to_return(status: 200, body: tuvalu_search, headers: {})
 end
 
 def youtube_data
