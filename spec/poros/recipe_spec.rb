@@ -4,10 +4,8 @@ RSpec.describe Recipe do
 
   it 'attributes' do
     response = File.read("spec/fixtures/recipe_response.json")
-    stub_request(:get, "https://api.edamam.com/api/recipes/v2?app_id=b309863d&app_key=630fa3d32a523d174d51172ff767285f&q=Thailand&type=public")
-      .to_return(status: 200, body: response, headers: {})
 
-    recipe = EdamamFacade.new.recipe("Thailand").first
+    recipe = Recipe.new(JSON.parse(response, symbolize_names: true)[:hits][0])
 
     expect(recipe.title).to eq("Andy Ricker's Naam Cheuam Naam Taan Piip (Palm Sugar Simple Syrup)")
     expect(recipe.url).to eq("http://www.edamam.com/ontologies/edamam.owl#recipe_3a551652abf5a1cef1421660d1b657d9")
