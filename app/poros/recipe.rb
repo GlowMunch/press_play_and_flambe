@@ -9,4 +9,4 @@ class Recipe
     @url          = data[:recipe][:uri]
     @image        = data[:recipe][:image]
   end
- end
+end
