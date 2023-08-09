@@ -7,7 +7,12 @@ RSpec.describe EdamamFacade do
   end
 
   it 'creates a recipe' do
-    thailand = EdamamFacade.new.recipe("thailand")
+    thailand = EdamamFacade.recipe("thailand")
     expect(thailand.first).to be_a(Recipe)
+      thailand.each do |data|
+        expect(data.image).to be_a(String)
+        expect(data.title).to be_a(String)
+        expect(data.url).to be_a(String)
+      end
   end
 end

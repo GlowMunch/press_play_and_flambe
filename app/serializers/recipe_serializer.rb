@@ -1,4 +1,6 @@
-# class RecipeSerializer
-#   include JSONAPI::Serializer
-#   attributes :title
-# end
+class RecipeSerializer
+  include JSONAPI::Serializer
+
+  set_type :recipe
+  attributes :title, :url, :image
+end

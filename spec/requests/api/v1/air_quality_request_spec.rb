@@ -5,6 +5,7 @@ RSpec.describe "air quality search request" do
     air_data
     country_data
   end
+
   context "happy path" do
     it "can return a counties capital air quality" do
 
