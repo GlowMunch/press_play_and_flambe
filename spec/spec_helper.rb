@@ -16,6 +16,7 @@
   require 'shoulda/matchers'
   require 'simplecov'
   require 'webmock/rspec'
+  require 'mock_data'
   SimpleCov.start 'rails'
   WebMock.disable_net_connect!
 

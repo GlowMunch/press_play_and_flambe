@@ -1,10 +1,10 @@
 class Recipe
   attr_reader :title,
               :url,
-              :image
+              :image,
+              :id
 
-
-  def initialize(data)
+  def initialize(data = [])
     @title        = data[:recipe][:label]
     @url          = data[:recipe][:uri]
     @image        = data[:recipe][:image]

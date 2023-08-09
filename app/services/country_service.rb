@@ -3,8 +3,20 @@ class CountryService
     Faraday.new(url: "https://restcountries.com")
   end
 
-  def self.country(country)
-    response = conn.get("/v3.1/name/#{country}")
+  def self.get_url(url)
+    response = conn.get(url)
     JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.country(country)
+    get_url("/v3.1/name/#{country}")
+  end
+
+  def self.all_countries
+    get_url("/v3.1/all")
+  end
+
+  def self.random
+    all_countries.sample[:name][:common]
   end
 end
