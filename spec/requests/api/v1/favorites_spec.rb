@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Api::V1::Favorites", type: :request do
+RSpec.describe "Favorites", type: :request do
   describe "POST /api/v1/favorites" do
     it "creates favorite for user" do
       blaine = User.create!(

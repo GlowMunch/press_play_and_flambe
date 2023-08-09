@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Recipe Request" do
+RSpec.describe "Recipe", type: :request do
   before :each do
     air_data
     recipe_data
@@ -16,7 +16,7 @@ RSpec.describe "Recipe Request" do
 
   #this keeps randomly creating a new uri to stub. Functionality is working
   context "sad path" do
-    xit "can randomly select a country if nothing is provided" do
+    it "can randomly select a country if nothing is provided" do
       get "/api/v1/recipes?country="
       expect(response).to be_successful
     end

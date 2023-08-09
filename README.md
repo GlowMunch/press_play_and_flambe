@@ -1,144 +1,52 @@
-# README
+# Culinary API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome! This API provides various endpoints to retrieve recipes and learning resources. Users will have registration, login, and favorites related to different recipes.
 
-Things you may want to cover:
+## Learning Goals
 
-* Ruby version
+- Build a JSON API using Ruby on Rails.
+- Implement CRUD operations for various resources.
+- Authenticate users and handle user sessions securely.
+- Integrate with external APIs to fetch recipe and learning resource data.
+- Practice error handling and validation.
+- Utilize JSON serialization to structure API responses.
 
-* System dependencies
+## Endpoints
 
-* Configuration
+### 1. Get Recipes For A Particular Country
 
-* Database creation
+**Endpoint:** `GET /api/v1/recipes`
 
-* Database initialization
+### 2. Get Learning Resources for a Particular Country
 
-* How to run the test suite
+**Endpoint:** `GET /api/v1/learning_resources`
 
-* Services (job queues, cache servers, search engines, etc.)
+### 3. User Registration
 
-* Deployment instructions
+**Endpoint:** `POST /api/v1/users`
 
-* Querry Response:
+### 4. Log In User
 
-```json
-{
-  "from": 0,
-  "to": 0,
-  "count": 0,
-  "_links": {
-    "self": {
-      "href": "string",
-      "title": "string"
-    },
-    "next": {
-      "href": "string",
-      "title": "string"
-    }
-  },
-  "hits": [
-    {
-      "recipe": {
-        "uri": "string",
-        "label": "string",
-        "image": "string",
-        "images": {
-          "THUMBNAIL": {
-            "url": "string",
-            "width": 0,
-            "height": 0
-          },
-          "SMALL": {
-            "url": "string",
-            "width": 0,
-            "height": 0
-          },
-          "REGULAR": {
-            "url": "string",
-            "width": 0,
-            "height": 0
-          },
-          "LARGE": {
-            "url": "string",
-            "width": 0,
-            "height": 0
-          }
-        },
-        "source": "string",
-        "url": "string",
-        "shareAs": "string",
-        "yield": 0,
-        "dietLabels": [
-          "string"
-        ],
-        "healthLabels": [
-          "string"
-        ],
-        "cautions": [
-          "string"
-        ],
-        "ingredientLines": [
-          "string"
-        ],
-        "ingredients": [
-          {
-            "text": "string",
-            "quantity": 0,
-            "measure": "string",
-            "food": "string",
-            "weight": 0,
-            "foodId": "string"
-          }
-        ],
-        "calories": 0,
-        "glycemicIndex": 0,
-        "totalCO2Emissions": 0,
-        "co2EmissionsClass": "A+",
-        "totalWeight": 0,
-        "cuisineType": [
-          "string"
-        ],
-        "mealType": [
-          "string"
-        ],
-        "dishType": [
-          "string"
-        ],
-        "instructions": [
-          "string"
-        ],
-        "tags": [
-          "string"
-        ],
-        "externalId": "string",
-        "totalNutrients": {},
-        "totalDaily": {},
-        "digest": [
-          {
-            "label": "string",
-            "tag": "string",
-            "schemaOrgTag": "string",
-            "total": 0,
-            "hasRDI": true,
-            "daily": 0,
-            "unit": "string",
-            "sub": {}
-          }
-        ]
-      },
-      "_links": {
-        "self": {
-          "href": "string",
-          "title": "string"
-        },
-        "next": {
-          "href": "string",
-          "title": "string"
-        }
-      }
-    }
-  ]
-}
-```
+**Endpoint:** `POST /api/v1/sessions`
+
+### 5. Add Favorites
+
+**Endpoint:** `POST /api/v1/favorites`
+
+### 6. Get a User’s Favorites
+
+**Endpoint:** `GET /api/v1/favorites`
+
+## Getting Started
+
+1. Clone this repository.
+
+2. Run `bundle install`.
+
+3. Run `rails db:create` and `rails db:migrate`.
+
+4. Run `bundle exec rspec` for test suite
+
+5. Obtain API keys from the required external services (Edamam Recipe API, YouTube API, Image API).
+
+6. Use Figaro to secure your Api keys. Follow the docs here [Figaro Gem](https://github.com/laserlemon/figaro)
