@@ -47,6 +47,8 @@ Welcome! This API provides various endpoints to retrieve recipes and learning re
 
 4. Run `bundle exec rspec` for test suite
 
-5. Obtain API keys from the required external services (Edamam Recipe API, YouTube API, Image API).
+5. Obtain API keys from the required external services ([EdamamAPI](https://developer.edamam.com/edamam-docs-recipe-api), [YouTubeApi](https://developers.google.com/youtube/v3/docs/search/list), [UnsplashAPI](https://unsplash.com/)).
 
-6. Use Figaro to secure your Api keys. Follow the docs here [Figaro Gem](https://github.com/laserlemon/figaro)
+6. Use Figaro to secure your Api keys. Follow the docs here [Figaro Gem](https://github.com/laserlemon/figaro). Insert your keys in the file provided when you add this gem.
+
+
