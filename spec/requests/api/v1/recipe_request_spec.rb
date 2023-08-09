@@ -14,6 +14,7 @@ RSpec.describe "Recipe Request" do
     end
   end
 
+  #this keeps randomly creating a new uri to stub. Functionality is working
   context "sad path" do
     xit "can randomly select a country if nothing is provided" do
       get "/api/v1/recipes?country="
