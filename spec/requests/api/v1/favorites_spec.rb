@@ -66,5 +66,79 @@ RSpec.describe "Api::V1::Favorites", type: :request do
       expect(error_response[:errors]).to include("Country can't be blank", "Recipe link can't be blank", "Recipe title can't be blank")
     end
   end
+
+  describe "GET /api/v1/favorites" do
+    it "returns favorite recipes" do
+      blaine = User.create!(
+        name: "Glow",
+        email: "me@gmail.com",
+        password: "thisisatest",
+        password_confirmation: "thisisatest",
+        api_key: SecureRandom.hex(16)
+      )
+
+      favorite1 = Favorite.create!(
+        user: blaine,
+        recipe_title: "Good Pie",
+        recipe_link: "http://www.pie.com/good",
+        country: "Guatemala",
+        created_at: "2023-11-02T02:17:54.111Z"
+      )
+
+      favorite2 = Favorite.create!(
+        user: blaine,
+        recipe_title: "Captain Crunch",
+        recipe_link: "https://www.milk.com/yum",
+        country: "Turykey",
+        created_at: "2021-10-07T03:44:08.917Z"
+      )
+
+      headers = {
+        "ACCEPT" => "application/json",
+        "HTTP_API_KEY" => blaine.api_key
+      }
+
+      get "/api/v1/favorites", headers: headers
+
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "returns an error if API key is invalid" do
+      blaine = User.create!(
+        name: "Glow",
+        email: "me@gmail.com",
+        password: "thisisatest",
+        password_confirmation: "thisisatest",
+        api_key: SecureRandom.hex(16)
+      )
+
+      favorite1 = Favorite.create!(
+        user: blaine,
+        recipe_title: "Good Pie",
+        recipe_link: "http://www.pie.com/good",
+        country: "Guatemala",
+        created_at: "2023-11-02T02:17:54.111Z"
+      )
+
+      favorite2 = Favorite.create!(
+        user: blaine,
+        recipe_title: "Captain Crunch",
+        recipe_link: "https://www.milk.com/yum",
+        country: "Turykey",
+        created_at: "2021-10-07T03:44:08.917Z"
+      )
+      headers = {
+        "ACCEPT" => "application/json",
+        "HTTP_API_KEY" => "badkey"
+      }
+
+      get "/api/v1/favorites", headers: headers
+
+      expect(response).to have_http_status(:bad_request)
+
+      error_response = JSON.parse(response.body, symbolize_names: true)
+      expect(error_response[:error]).to eq("Invalid API key")
+    end
+  end
 end
 
