@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       resources :recipes, only: [:index]
       resources :learning_resources, only: [:index]
       resources :users, only: [:create, :show]
+      resources :sessions, only: [:create]
+      resources :favorites, only: [:create, :index, :destroy]
     end
   end
 end

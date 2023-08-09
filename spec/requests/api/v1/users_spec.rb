@@ -52,5 +52,16 @@ RSpec.describe "Users" do
       error_response = JSON.parse(response.body, symbolize_names: true)
       expect(error_response[:errors]).to include("Password confirmation doesn't match Password")
     end
+
+    it "checks json response" do
+      post "/api/v1/users", params: user_params, as: :json
+      #make test more robust
+      expect(response).to have_http_status(:created)
+      expect(JSON.parse(response.body)).to be_a(Hash)
+      user = JSON.parse(response.body, symbolize_names: true)
+      expect(user[:name]).to eq("Odell")
+      expect(user[:email]).to eq("goodboy@ruffruff.com")
+
+    end
   end
 end
